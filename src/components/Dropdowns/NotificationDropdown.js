@@ -28,12 +28,13 @@ const NotificationDropdown = () => {
         }}
       >
         <i className="fas fa-bell"></i>
+        DASHBOARD
       </a>
       <div
         ref={popoverDropdownRef}
         className={
           (dropdownPopoverShow ? "block " : "hidden ") +
-          "bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1 min-w-48"
+          "bg-white text-base z-50 float-left py-2 list-none text-right rounded shadow-lg mt-1 min-w-48"
         }
       >
         <a

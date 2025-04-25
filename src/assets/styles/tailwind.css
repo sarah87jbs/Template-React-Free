@@ -686,6 +686,17 @@ select {
   width: 100%;
 }
 
+.sidebar-fix-right {
+  right: 0 !important;
+  left: auto !important;
+}
+
+
+
+.body-fix-left {
+  right: auto !important;
+  left: 0 !important;
+}
 @media (min-width: 640px) {
   .container {
     max-width: 640px;

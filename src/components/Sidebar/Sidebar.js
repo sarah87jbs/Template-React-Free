@@ -105,7 +105,7 @@ export default function Sidebar() {
     <i
       className={
         "fas fa-tv ml-2 text-sm transform transition-transform duration-300 group-hover:scale-110 " +
-        (window.location.href.indexOf("/admin/dashboard") !== -1
+        (window.location.href.indexOf("/admin/dashboard depart") !== -1
           ? "opacity-75"
           : "text-blueGray-300")
       }

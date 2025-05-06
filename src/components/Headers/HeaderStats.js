@@ -8,9 +8,11 @@ export default function HeaderStats() {
   return (
     <>
       {/* Header */}
-      <div className=" bg-lightBlue-600 md:pt-32 pb-32 pt-12 ml-0 mr-16 md:flex-row-reverse" >
+      <div className=" bg-lightBlue-600  pt-0 pb-32 pt-12 ml-0 mr-16 md:flex-row-reverse" >
+     
         <div className="px-4 md:px-10  ">
           <div>
+          
             {/* Card stats */}
             <div className="flex flex-wrap justify-start">
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4" dir="rtl">
@@ -48,7 +50,11 @@ export default function HeaderStats() {
                   statIconName="fas fa-users"
                   statIconColor="bg-pink-500"
                 />
+                {/* <div className="flex justify-center">*/}
+  
+{/*</div>*/}
               </div>
+              
               {/*<div className="w-full lg:w-6/12 xl:w-3/12 px-4" dir="rtl">
                 <CardStats
                   statSubtitle="PERFORMANCE"

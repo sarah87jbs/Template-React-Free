@@ -7,29 +7,33 @@ export default function CardBarChart() {
       type: "bar",
       data: {
         labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
+          "قرض سيارة",
+          "قرض سكني",
+          "قرض منوسط",
+          "قرض عقاري",
+          "قرض مباشر",
+          "قرض شراء",
+          "قرض قصير",
+          "قرض عيد الإضحى",
+          "قرض مدرسي",
+          "OOREDO",
+          "ORANGE"
         ],
         datasets: [
           {
-            label: new Date().getFullYear(),
+            label: "الفائض",
             backgroundColor: "#ed64a6",
             borderColor: "#ed64a6",
-            data: [30, 78, 56, 34, 100, 45, 13],
+            data: [30, 78, 56, 34, 100, 45, 13,45,85,57,10,23],
             fill: false,
             barThickness: 8,
           },
           {
-            label: new Date().getFullYear() - 1,
+            label: "أصل الدين",
             fill: false,
             backgroundColor: "#4c51bf",
             borderColor: "#4c51bf",
-            data: [27, 68, 86, 74, 10, 4, 87],
+            data: [27, 68, 86, 74, 10, 4, 87,53,74,20,11],
             barThickness: 8,
           },
         ],
@@ -105,7 +109,7 @@ export default function CardBarChart() {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">
               <h6 className="uppercase text-blueGray-400 mb-1 text-xs font-semibold" dir="rtl">
-                مداخيل القروض مفصلةحسب الرمز
+               مداخيل القروض حسب الرمز لسنة  {new Date().getFullYear()} 
               </h6>
               <h2 className="text-blueGray-700 text-xl font-semibold">
                 

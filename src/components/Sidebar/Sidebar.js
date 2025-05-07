@@ -1,17 +1,19 @@
-/*eslint-disable*/
+/* eslint-disable */
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import NotificationDropdown from "components/Dropdowns/NotificationDropdown.js";
 import UserDropdown from "components/Dropdowns/UserDropdown.js";
 
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = React.useState("hidden");
+
   return (
     <>
-     
-      <nav className=" sidebar-fix-right md:right-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row-reverse md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6"  dir="rtl">
-      
+      <nav
+        className="sidebar-fix-right md:right-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row-reverse md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6"
+        dir="rtl"
+      >
         <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
           {/* Toggler */}
           <button
@@ -21,14 +23,16 @@ export default function Sidebar() {
           >
             <i className="fas fa-bars"></i>
           </button>
+
           {/* Brand */}
-          <Link
-            className="md:block text-right md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+          <NavLink
             to="/"
+            className="md:block text-right text-blueGray-600 inline-block text-sm uppercase font-bold p-4 px-0"
           >
             تطبيقة إنجاز القرص الصادر والوارد
-          </Link>
-          {/* User */}
+          </NavLink>
+
+          {/* User on small screens */}
           <ul className="md:hidden items-center flex flex-wrap list-none">
             <li className="inline-block relative">
               <NotificationDropdown />
@@ -37,348 +41,77 @@ export default function Sidebar() {
               <UserDropdown />
             </li>
           </ul>
-          {/* Collapse */}
+
+          {/* Menu */}
           <div
             className={
-              "md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 right-0 left-auto  z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded " +
+              "md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 right-0 left-auto z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded " +
               collapseShow
             }
           >
-            {/* Collapse header */}
-            <div className="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200">
-              <div className="flex flex-wrap">
-                <div className="w-6/12">
-                  <Link
-                    className="md:block text-right md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-                    to="/"
-                  >
-                تطبيقة إنجاز القرص الصادر والوارد
-                  </Link>
-                </div>
-                <div className="w-6/12 flex justify-end">
-                  <button
-                    type="button"
-                    className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-                    onClick={() => setCollapseShow("hidden")}
-                  >
-                     <i className="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            {/* Form */}
-            <form className="mt-6 mb-4 md:hidden">
-              <div className="mb-3 pt-0">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="border-0 px-3 py-2 h-12 border border-solid  border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
-                />
-              </div>
-            </form>
-
-            {/* Divider */}
-           
+            {/* Navigation Sections */}
             <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
-            <h6 className="md:text-right-0 text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-             الإحصاىيات
+            <h6 className="text-blueGray-500 text-xs uppercase font-bold pt-1 pb-4">
+              الإحصائيات
             </h6>
-            {/* Navigation */}
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
+                <NavLink
+                  to="/admin/dashboardDepart"
+                  exact
+                  className={({ isActive }) =>
+                    "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
+                    (isActive
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                >
+                  <i className="fas fa-tv ml-2 text-sm group-hover:scale-110 transition-transform duration-300" />
+                  إحصائيات القرص الصادر
+                </NavLink>
               </li>
-               
-                 
-                 <li className="items-center">
-  <Link
-    to="/admin/dashboard"
-    dir="rtl"
-    className={
-      "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
-      (window.location.href.indexOf("/admin/dashboard") !== -1
-        ? "text-lightBlue-500 hover:text-lightBlue-600"
-        : "text-blueGray-700 hover:text-blueGray-500")
-    }
-  >
-    <i
-      className={
-        "fas fa-tv ml-2 text-sm transform transition-transform duration-300 group-hover:scale-110 " +
-        (window.location.href.indexOf("/admin/dashboard depart") !== -1
-          ? "opacity-75"
-          : "text-blueGray-300")
-      }
-    ></i>
-    إحصائيات القرص الصادر
-  </Link>
-</li>
 
-              
-
-              
-  <li className="items-center">
-  <Link
-    to="/admin/dashboard"
-    dir="rtl"
-    className={
-      "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
-      (window.location.href.indexOf("/admin/dashboard") !== -1
-        ? "text-lightBlue-500 hover:text-lightBlue-600"
-        : "text-blueGray-700 hover:text-blueGray-500")
-    }
-  >
-    <i
-      className={
-        "fas fa-tv ml-2 text-sm transform transition-transform duration-300 group-hover:scale-110 " +
-        (window.location.href.indexOf("/admin/dashboard") !== -1
-          ? "opacity-75"
-          : "text-blueGray-300")
-      }
-    ></i>
-    إحصائيات القرص الوارد
-  </Link>
-</li>
-
-             
+              <li className="items-center">
+                <NavLink
+                  to="/admin/dashboard"
+                  exact
+                  className={({ isActive }) =>
+                    "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
+                    (isActive
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                >
+                  <i className="fas fa-tv ml-2 text-sm group-hover:scale-110 transition-transform duration-300" />
+                  إحصائيات القرص الوارد
+                </NavLink>
+              </li>
             </ul>
 
-           
-
-            {/* Divider */}
+            {/* Other Sections (Example: معالجة القرص الصادر) */}
             <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+            <h6 className="text-blueGray-500 text-xs uppercase font-bold pt-1 pb-4">
               معالجة القرص الصادر
             </h6>
-            {/* Navigation */}
-
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-            <li className="items-center">
-  <Link
-    to="/admin/tables"
-    dir="rtl"
-    className={
-      "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
-      (window.location.href.indexOf("/admin/dashboard") !== -1
-        ? "text-lightBlue-500 hover:text-lightBlue-600"
-        : "text-blueGray-700 hover:text-blueGray-500")
-    }
-  >
-    <i
-      className={
-        "fas fa-file-alt ml-2 text-sm transform transition-transform duration-300 group-hover:scale-110 " +
-        (window.location.href.indexOf("/admin/dashboard") !== -1
-          ? "opacity-75"
-          : "text-blueGray-300")
-      }
-    ></i>
-    نحضير القرص
-  </Link>
-</li>
-
-
-<li className="items-center">
-  <Link
-    to="/admin/dashboard"
-    dir="rtl"
-    className={
-      "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
-      (window.location.href.indexOf("/admin/dashboard") !== -1
-        ? "text-lightBlue-500 hover:text-lightBlue-600"
-        : "text-blueGray-700 hover:text-blueGray-500")
-    }
-  >
-    <i
-     
-      className={
-        "fas fa-file-alt ml-2 text-sm transform transition-transform duration-300 group-hover:scale-110 " +
-        (window.location.href.indexOf("/admin/dashboard") !== -1
-          ? "opacity-75"
-          : "text-blueGray-300")
-      }
-    ></i>
-    التسجيلات المزمع إدراجها بالقرص
-  </Link>
-</li>
-<li className="items-center">
-  <Link
-    to="/admin/dashboard"
-    dir="rtl"
-    className={
-      "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
-      (window.location.href.indexOf("/admin/dashboard") !== -1
-        ? "text-lightBlue-500 hover:text-lightBlue-600"
-        : "text-blueGray-700 hover:text-blueGray-500")
-    }
-  >
-    <i
-     
-      className={
-        "fas fa-file-alt ml-2 text-sm transform transition-transform duration-300 group-hover:scale-110 " +
-        (window.location.href.indexOf("/admin/dashboard") !== -1
-          ? "opacity-75"
-          : "text-blueGray-300")
-      }
-    ></i>
-    الخصومات التي تفوق 1000 دينار
-  </Link>
-</li>
-
-<li className="items-center">
-  <Link
-    to="/admin/dashboard"
-    dir="rtl"
-    className={
-      "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
-      (window.location.href.indexOf("/admin/dashboard") !== -1
-        ? "text-lightBlue-500 hover:text-lightBlue-600"
-        : "text-blueGray-700 hover:text-blueGray-500")
-    }
-  >
-    <i
-     
-      className={
-        "fas fa-file-alt ml-2 text-sm transform transition-transform duration-300 group-hover:scale-110 " +
-        (window.location.href.indexOf("/admin/dashboard") !== -1
-          ? "opacity-75"
-          : "text-blueGray-300")
-      }
-    ></i>
-    الخصومات التي تفوق 2000 دينار
-  </Link>
-</li>
-<li className="items-center">
-  <Link
-    to="/admin/dashboard"
-    dir="rtl"
-    className={
-      "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
-      (window.location.href.indexOf("/admin/dashboard") !== -1
-        ? "text-lightBlue-500 hover:text-lightBlue-600"
-        : "text-blueGray-700 hover:text-blueGray-500")
-    }
-  >
-    <i
-     
-      className={
-        "fas fa-file-alt ml-2 text-sm transform transition-transform duration-300 group-hover:scale-110 " +
-        (window.location.href.indexOf("/admin/dashboard") !== -1
-          ? "opacity-75"
-          : "text-blueGray-300")
-      }
-    ></i>
-    إنجاز القرص
-  </Link>
-</li>
-
-
-             {/* <li className="items-center">
-                <Link
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  to="/profile"
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+              <li className="items-center">
+                <NavLink
+                  to="/admin/tables"
+                  exact
+                  className={({ isActive }) =>
+                    "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
+                    (isActive
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
                 >
-                  <i className="fas fa-user-circle text-blueGray-400 mr-2 text-sm"></i>{" "}
-                  Profile Page
-                </Link>
-              </li>*/}
-            </ul>
-
-            {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              إنجاز القرص الوار
-            </h6>
-            {/* Navigation */}
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/react/colors/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fas fa-paint-brush mr-2 text-blueGray-300 text-base"></i>
-                  Styles
-                </a>
+                  <i className="fas fa-file-alt ml-2 text-sm" />
+                  تحضير القرص
+                </NavLink>
               </li>
 
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fab fa-css3-alt mr-2 text-blueGray-300 text-base"></i>
-                  CSS Components
-                </a>
-              </li>
-
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/angular/overview/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fab fa-angular mr-2 text-blueGray-300 text-base"></i>
-                  Angular
-                </a>
-              </li>
-
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/js/overview/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fab fa-js-square mr-2 text-blueGray-300 text-base"></i>
-                  Javascript
-                </a>
-              </li>
-
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/overview/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fab fa-react mr-2 text-blueGray-300 text-base"></i>
-                  NextJS
-                </a>
-              </li>
-
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fab fa-react mr-2 text-blueGray-300 text-base"></i>
-                  React
-                </a>
-              </li>
-
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/svelte/overview/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fas fa-link mr-2 text-blueGray-300 text-base"></i>
-                  Svelte
-                </a>
-              </li>
-
-              <li className="inline-flex">
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/vue/overview/notus"
-                  target="_blank"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-                >
-                  <i className="fab fa-vuejs mr-2 text-blueGray-300 text-base"></i>
-                  VueJS
-                </a>
-              </li>
+              {/* Ajoute ici d'autres liens similaires selon besoin */}
             </ul>
           </div>
         </div>

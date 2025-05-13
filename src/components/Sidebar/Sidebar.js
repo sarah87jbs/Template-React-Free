@@ -56,6 +56,23 @@ export default function Sidebar() {
             </h6>
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+            <li className="items-center">
+                <NavLink
+                  to="/admin/dashboard"
+                  exact
+                  className={({ isActive }) =>
+                    "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
+                    (isActive
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                >
+                  <i className="fas fa-tv ml-2 text-sm group-hover:scale-110 transition-transform duration-300" />
+                  إحصائيات القرص الوارد
+                </NavLink>
+              </li>
+
+              
               <li className="items-center">
                 <NavLink
                   to="/admin/dashboardDepart"
@@ -69,22 +86,6 @@ export default function Sidebar() {
                 >
                   <i className="fas fa-tv ml-2 text-sm group-hover:scale-110 transition-transform duration-300" />
                   إحصائيات القرص الصادر
-                </NavLink>
-              </li>
-
-              <li className="items-center">
-                <NavLink
-                  to="/admin/dashboard"
-                  exact
-                  className={({ isActive }) =>
-                    "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
-                    (isActive
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                >
-                  <i className="fas fa-tv ml-2 text-sm group-hover:scale-110 transition-transform duration-300" />
-                  إحصائيات القرص الوارد
                 </NavLink>
               </li>
             </ul>
@@ -110,6 +111,87 @@ export default function Sidebar() {
                   تحضير القرص
                 </NavLink>
               </li>
+              
+
+              {/* Ajoute ici d'autres liens similaires selon besoin */}
+            </ul>
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+              <li className="items-center">
+                <NavLink
+                  to="/admin/tables"
+                  exact
+                  className={({ isActive }) =>
+                    "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
+                    (isActive
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                >
+                  <i className="fas fa-file-alt ml-2 text-sm" />
+                  التسجيلات المزمع إدراجها بالقرص 
+                </NavLink>
+              </li>
+              
+
+              {/* Ajoute ici d'autres liens similaires selon besoin */}
+            </ul>
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+              <li className="items-center">
+                <NavLink
+                  to="/admin/tables"
+                  exact
+                  className={({ isActive }) =>
+                    "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
+                    (isActive
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                >
+                  <i className="fas fa-file-alt ml-2 text-sm" />
+                  الخصومات التي تفوق 1000 دينار
+                </NavLink>
+              </li>
+              
+
+              {/* Ajoute ici d'autres liens similaires selon besoin */}
+            </ul>
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+              <li className="items-center">
+                <NavLink
+                  to="/admin/dashboard"
+                  exact
+                  className={({ isActive }) =>
+                    "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
+                    (isActive
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                >
+                  <i className="fas fa-file-alt ml-2 text-sm" />
+                  التسجيلات التي تفوق 2000دينار
+                </NavLink>
+              </li>
+              
+
+              {/* Ajoute ici d'autres liens similaires selon besoin */}
+            </ul>
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+              <li className="items-center">
+                <NavLink
+                  to="/admin/tables"
+                  exact
+                  className={({ isActive }) =>
+                    "group text-xs uppercase py-3 font-bold block transition-all duration-300 ease-in-out " +
+                    (isActive
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                >
+                  <i className="fas fa-file-alt ml-2 text-sm" />
+                  إنجاز القرص
+                </NavLink>
+              </li>
+              
 
               {/* Ajoute ici d'autres liens similaires selon besoin */}
             </ul>

@@ -3,6 +3,7 @@ import React from "react";
 // components
 import CardStats from "components/Cards/CardStats.js";
 
+
 export default function HeaderStats() {
   return (
     <>
@@ -10,7 +11,7 @@ export default function HeaderStats() {
       <div className="px-4 md:px-10">
         <div>
           {/* Card stats */}
-          <div className="flex flex-wrap justify-start">
+          <div className="flex flex-wrap justify-center">
             <div className="w-full lg:w-6/12 xl:w-3/12 px-4" dir="rtl">
               <CardStats
                 statSubtitle="المداخيل"

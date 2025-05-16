@@ -10,6 +10,7 @@ import Dashboard from "views/admin/Dashboard.js";
 import Maps from "views/admin/Maps.js";
 import Settings from "views/admin/Settings.js";
 import Tables from "views/admin/Tables.js";
+import ChoixMoisAnnee from "components/formulaire/ChoixmoisAnnee"; 
 
 export default function Admin() {
   const location = useLocation();
@@ -26,9 +27,13 @@ export default function Admin() {
           <AdminNavbar />
   
           {/* Bande bleue qui apparaît seulement si c'est /dashboard */}
-          <div className="relative bg-lightBlue-600 md:pt-32 pb-32 pt-12">
-            {showHeader && <HeaderStats />}
-          </div>
+          <div className="relative bg-blue pt-6 pb-6 px-4 justify-center">
+          <div className="flex justify-center mb-4">
+  <ChoixMoisAnnee />
+</div>
+  
+  {showHeader && <HeaderStats />}
+</div>
   
           <div className="px-4 md:px-10 mx-auto w-full -m-24">
             <Switch>
